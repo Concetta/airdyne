@@ -1,4 +1,11 @@
 require "highline/import"
 
-input = ask ("Input something here: ")
-puts input 
+puts "Menu"
+
+menu = ("Area of circle")
+
+choose menu
+
+if 1
+	puts "Enter radius: "
+end
