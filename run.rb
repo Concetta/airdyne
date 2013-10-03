@@ -1,11 +1,14 @@
 require "highline/import"
+require './lib/area_of_circle.rb'
 
-puts "Menu"
+say "Menu"
 
-menu = ("Area of circle")
+menu = "Area of circle"
 
 choose menu
 
 if 1
-	puts "Enter radius: "
+	radius = ask "Enter radius: ", Integer
+	say "Area is: #{calculate_area_circle(radius)}"
+
 end
