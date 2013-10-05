@@ -13,6 +13,7 @@ choose do |menu|
 
  	menu.choice "Rands and cents" do 
  		cents = ask "Enter cents", Integer
-		say "You have: Rand #{calculate_rands_and_cents(cents)}" 	
+		total = calculate_rands_and_cents(cents)
+		say "You have: #{string_rands_and_cents(total)}"
 	end 
 end
