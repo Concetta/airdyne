@@ -7,11 +7,11 @@ end
 def string_rands_and_cents(total)
 
 	rand = (total.floor)
-	cents = ((total.modulo(1)*100).to_i).to_s + " cents"
+	cents = ((total - rand) * 100).round
 	if rand > 1
-		rand.to_s + " Rands and " + cents
+		rand.to_s + " Rands and " + cents.to_s + " cents"
 	else
-		rand.to_s + " Rand and " + cents
+		rand.to_s + " Rand and " + cents.to_s + " cents"
 	end 
 
 end 
