@@ -27,4 +27,12 @@ describe "string_rands_and_cents" do
 		string_rands_and_cents(2).should == "2 Rands and 0 cents"
 	end 
 
-end 
+end
+
+describe "string_rands_and_cents and calculate_rands_and_cents" do
+
+  it "returns 2 Rand and 34 cents" do
+    string_rands_and_cents(calculate_rands_and_cents(234)).should == "2 Rand and 34 cents"
+  end
+
+end
