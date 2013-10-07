@@ -10,6 +10,8 @@ def string_rands_and_cents(total)
 	cents = ((total - rand) * 100).round
 	if rand > 1
 		rand.to_s + " Rands and " + cents.to_s + " cents"
+	elsif rand < 0
+		" No Rands or cents"
 	else
 		rand.to_s + " Rand and " + cents.to_s + " cents"
 	end 

@@ -27,6 +27,13 @@ describe "string_rands_and_cents" do
 		string_rands_and_cents(2).should == "2 Rands and 0 cents"
 	end 
 
+	it "returns no rands or cents if < 0" do
+		string_rands_and_cents(-1).should == " No Rands or cents"
+	end	
+
+	it "returns no rands or cents if < 0" do
+		string_rands_and_cents(-134).should == " No Rands or cents"
+	end	
 end
 
 describe "string_rands_and_cents and calculate_rands_and_cents" do
