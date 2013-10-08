@@ -15,4 +15,7 @@ choose do |menu|
  		rands = ask "Enter cents", Integer
 		say "You have: #{rands_and_cents(rands)}"
 	end 
+
+	menu.choice "Change calculator" do
+	end 
 end
