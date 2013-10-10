@@ -1,6 +1,7 @@
 require "highline/import"
 require './lib/area_of_circle.rb'
 require './lib/rands_and_cents.rb'
+require './lib/change_calculator.rb'
 
 say "Menu"
 
@@ -17,5 +18,7 @@ choose do |menu|
 	end 
 
 	menu.choice "Change calculator" do
+		change = ask "Enter changed amount", Integer
+		say "You have: #{change_return(change)}change"
 	end 
 end
