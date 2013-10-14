@@ -1,39 +1,17 @@
 def change_calculator(value)
 
-	if value % 500 == 0
-
-		amount_of_coins("R 5", value , 500)
-
-	elsif value > 500
+	if value > 500
 
 		more_than_five_rand(value)
 
-	elsif value % 200 == 0 
-			
-		amount_of_coins("R 2", value , 200)
+	elsif value == 300
 
-	elsif value == 100
-		"1 x R 1"
+		less_than_five_rand(value)
 
-	elsif value == 50
-		"1 x 50 c"
+	else 
 
-	elsif value % 20 == 0
+		same_coins(value)
 
-		amount_of_coins("20 c", value , 20)
-
-	elsif value == 10
-		"1 x 10 c"
-
-	elsif value == 5
-		"1 x 5 c"
-
-	elsif value % 2 == 0
-
-		amount_of_coins("2 c", value , 2)
-
-	else
-		"1 x 1 c"
 	end 
 
 end 
@@ -50,22 +28,53 @@ def more_than_five_rand(value)
 		value_left = value
 		five_rand =  value_left / 500
 		value_left_five_rand = value - (500 * five_rand) 
-		two_rand = value_left_five_rand / 200
-		value_left_two_rand = value_left_five_rand - (200 * two_rand)
-		one_rand = value_left_two_rand / 100
 		result_text = amount_of_coins("R 5", value, 500)
-		if two_rand == 0 && one_rand == 0
-			result_text
-		elsif two_rand == 0
-			result_text + ", " + 
+		result_text += 
+		if value_left_five_rand == 0 
+			""	
+		else
+			", " + 
+			less_than_five_rand(value_left_five_rand) 
+		end
+end 
+
+def less_than_five_rand(value)
+		
+		value_left = value
+		two_rand =  value_left / 200
+		value_left_two_rand = value - (200 * two_rand) 
+		one_rand = value_left_two_rand / 100
+		value_left_one_rand = value_left_two_rand - (100 * one_rand)
+		result_text = amount_of_coins("R 2", value, 200)
+		if two_rand == 0
 			amount_of_coins("R 1", value_left_two_rand , 100)
 		elsif one_rand == 0
-			result_text + ", " + 
-			amount_of_coins("R 2", value_left_five_rand, 200)
+			result_text
 		else
 			result_text + ", " + 
-			amount_of_coins("R 2", value_left_five_rand, 200) + 
-
-			", " + amount_of_coins("R 1", value_left_two_rand , 100)
+			amount_of_coins("R 1", value_left_two_rand , 100)
 		end
+end 
+
+def same_coins(value)
+
+	if value % 500 == 0
+		amount_of_coins("R 5", value , 500)
+	elsif value % 200 == 0 	
+		amount_of_coins("R 2", value , 200)
+	elsif value == 100
+		"1 x R 1"
+	elsif value == 50
+		"1 x 50 c"
+	elsif value % 20 == 0
+		amount_of_coins("20 c", value , 20)
+	elsif value == 10
+		"1 x 10 c"
+	elsif value == 5
+		"1 x 5 c"
+	elsif value % 2 == 0
+		amount_of_coins("2 c", value , 2)
+	else
+		"1 x 1 c"
+	end 
 end 

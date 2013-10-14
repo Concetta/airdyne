@@ -83,8 +83,8 @@ describe "change_calculator" do
 		change_calculator(1800).should == "3 x R 5, 1 x R 2, 1 x R 1"
 	end 
 
-	# it "I have 550 cents and want 1 x R 5, 1 x 50 c" do
-	# 	change_calculator(550).should == "1 x R 5, 1 x 50 c"
-	# end
+	it "I have 300 cents and want 1 x R 2, 1 x R 1" do
+		change_calculator(300).should == "1 x R 2, 1 x R 1"
+	end
 
 end
