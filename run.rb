@@ -18,7 +18,7 @@ choose do |menu|
 	end 
 
 	menu.choice "Change calculator" do
-		change = ask "Enter changed amount", Integer
-		say "You have: #{change_return(change)}change"
+		change = ask "Enter changed amount in cents", Integer
+		say "You have: #{change_calculator(change)} change"
 	end 
 end
