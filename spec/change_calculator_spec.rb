@@ -87,4 +87,33 @@ describe "change_calculator" do
 		change_calculator(300).should == "1 x R 2, 1 x R 1"
 	end
 
+	it "I have 70 cents and want 1 x 50 c, 1 x 20 c" do
+		change_calculator(70).should == "1 x 50 c, 1 x 20 c"
+	end
+
+	it "I have 80 cents and want 1 x 50 c, 1 x 20 c, 1 x 10 c" do
+		change_calculator(80).should == "1 x 50 c, 1 x 20 c, 1 x 10 c"
+	end
+
+	it "I have 15 cents and want 1 x 10 c, 1 x 5 c" do
+		change_calculator(15).should == "1 x 10 c, 1 x 5 c"
+	end
+
+	it "I have 17 cents and want 1 x 10 c, 1 x 5 c, 1 x 2 c" do
+		change_calculator(17).should == "1 x 10 c, 1 x 5 c, 1 x 2 c"
+	end
+
+	it "I have 18 cents and want 1 x 10 c, 1 x 5 c, 1 x 2 c, 1 x 1 c" do
+		change_calculator(18).should == "1 x 10 c, 1 x 5 c, 1 x 2 c, 1 x 1 c"
+	end
+
+	# it "I have 550 cents and want 1 x R 5, 1 x 50 c" do
+	# 	change_calculator(550).should == "1 x R 5, 1 x 50 c"
+	# end
+
+
+	# it "I have 6 cents and want 1 x 5 c, 1 x 1 c" do
+	# 	change_calculator(6).should == "1 x 5 c, 1 x 1 c"
+	# end
+
 end
