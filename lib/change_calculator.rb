@@ -32,6 +32,10 @@ def change_calculator(value)
 
 		two_cent_coins(value)
 
+	elsif value <= 0
+
+		"No Rands or cents"
+
 	else
 
 		one_cent_coins(value)

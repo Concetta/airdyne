@@ -119,4 +119,12 @@ describe "change_calculator" do
 		change_calculator(6).should == "1 x 5 c, 1 x 1 c"
 	end
 
+	it " I have 0 and want no rands or cents" do
+		change_calculator(0).should == "No Rands or cents"
+	end
+
+	it " I have -1 and want no rands or cents" do
+		change_calculator(-1).should == "No Rands or cents"
+	end
+
 end
