@@ -1,44 +1,12 @@
 def change_calculator(value)
 
-	if value >= 500
+	if value >= 1
 
 		five_rand_coins(value)
 
-	elsif value < 500 && value >= 200
-
-		two_rand_coins(value)
-
-	elsif value < 200 && value >= 100
-
-		one_rand_coins(value)
-
-	elsif value < 99 && value >= 50
-
-		fifty_cent_coins(value)
-
-	elsif value < 49 && value >= 20 
-
-		twenty_cent_coins(value)
-
-	elsif value < 20 && value >= 10
-
-		ten_cent_coins(value)
-
-	elsif value < 10 && value >= 5
-
-		five_cent_coins(value)
-
-	elsif value < 5 && value >= 2
-
-		two_cent_coins(value)
-
-	elsif value <= 0
-
-		"No Rands or cents"
-
 	else
 
-		one_cent_coins(value)
+		"No Rands or cents"
 
 	end 
 
@@ -49,13 +17,23 @@ def five_rand_coins(value)
 	value_left = value
 	number_of_five_rand_coins =  value_left / 500
 	value_left_five_rand = value - (500 * number_of_five_rand_coins) 
-	result_text = amount_of_coins("R 5", value, 500)
-	result_text += 
-	if value_left_five_rand == 0 
-		""	
+	if number_of_five_rand_coins >= 1
+		result_text = amount_of_coins("R 5", value, 500)
+		result_text += 
+		if value_left_five_rand == 0 
+			""	
+		else
+			", " + 
+			two_rand_coins(value_left_five_rand)
+		end
 	else
-		", " + 
-		two_rand_coins(value_left_five_rand)
+		result_text = ""
+		result_text +=
+		if value_left_five_rand == 0
+			""
+		else
+			two_rand_coins(value_left_five_rand)
+		end
 	end
 end 
 
