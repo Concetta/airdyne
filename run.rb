@@ -2,6 +2,7 @@ require "highline/import"
 require './lib/area_of_circle.rb'
 require './lib/rands_and_cents.rb'
 require './lib/change_calculator.rb'
+require './lib/user.rb'
 
 say "Menu"
 
@@ -14,8 +15,12 @@ loop do
 	    	choose do |submenu|
 	    		submenu.prompt = "Please select a user menu number"
 	    		submenu.choice "List" do 
+	    			user_list 
 	    		end 
 	    		submenu.choice "Add" do 
+	    			name = ask "What is your name? "
+					# surname = ask "Enter your surname: "
+					# id_number = ask "Enter your id number: "
 	    		end 
 	    		submenu.choice "Delete" do
 	    		end 
