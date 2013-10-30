@@ -1,15 +1,10 @@
 class User
 
 	def initialize(options = {})
-		@id = options[:id] 
 		@name = options[:name]
 		@surname = options[:surname] 
 		@id_number = options[:id_number]
-	end 
-
-	def id 
-		@id 
-	end 
+	end  
 
 	def name
     	@name  
@@ -23,8 +18,8 @@ class User
 		@id_number
 	end 
 
-	def user_details 
-		"#{id}; #{name}; #{surname}; #{id_number}"
+	def to_s 
+		"#{name} #{surname} #{id_number}"
 	end 
 
 end 

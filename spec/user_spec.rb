@@ -5,14 +5,9 @@ describe "User" do
 
 	before :each do 
 		@user = User.new({
-			:id => 0,
 			:name => "bug",
 			:surname => "laing",
 			:id_number => "800228"})
-	end 
-
-	it "should have a user id" do
-		expect(@user.id).to eq 0
 	end 
 
 	it "should have a user name" do 
@@ -28,7 +23,7 @@ describe "User" do
 	end 
 
 	it "should show user_details" do 
-		expect(@user.user_details).to eq "0; bug; laing; 800228"
+		expect(@user.user_details).to eq "bug laing 800228"
 	end 
 
 end 
