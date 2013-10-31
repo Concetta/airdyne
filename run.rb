@@ -19,7 +19,9 @@ loop do
 		    	choose do |submenu|
 		    		submenu.prompt = "Please select a user menu number"
 		    		submenu.choice "List" do 
-		    			say users.to_s
+		    			users.each do |user|
+		    				say user.to_s + "\n"
+		    			end
 		    		end 
 		    		submenu.choice "Add" do 
 		    			name = ask "What is your name? "
@@ -30,9 +32,12 @@ loop do
 		    				:surname => surname,
 		    				:id_number => id_number
 		    				})
-		    			users << (user)
+		    			users << user
 		    		end 
 		    		submenu.choice "Delete" do
+		    			delete_user = ask "Which user id_number do you want to delete? "
+		    			user_to_delete = users.select { |user| user.id_number == delete_user }.first 
+		    			users.delete(user_to_delete)
 		    		end 
 		    		submenu.choice(:Back) { exit }
 		    	end 
