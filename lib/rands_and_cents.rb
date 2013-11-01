@@ -6,7 +6,7 @@ end
 
 def rands_and_cents(rands)
 
-rand, cents = calculate_rands_and_cents(rands)
+	rand, cents = calculate_rands_and_cents(rands)
 
 	if cents == 0 && rand == 1
 		"#{rand} Rand"

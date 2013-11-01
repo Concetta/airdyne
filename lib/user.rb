@@ -5,26 +5,25 @@ class User
 	end  
 
 	def self.add(user)
-		
-		all << user 
+		self.all << user 
 	end 
 
 	def self.add_new_user(user)
-
+		self.all << user 
 	end 
  
 	def self.reset
 		@all_users = []
 	end 
 
-	def initialize(options = {})
+	def initialize(options)
 		@name = options[:name]
 		@surname = options[:surname] 
 		@id_number = options[:id_number]
 	end  
 
 	def name
-    	@name  
+    @name  
 	end 
 
 	def surname 

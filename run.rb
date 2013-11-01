@@ -3,6 +3,7 @@ require './lib/area_of_circle.rb'
 require './lib/rands_and_cents.rb'
 require './lib/change_calculator.rb'
 require './lib/user.rb'
+require './lib/stars.rb'
 
 users = []
 
@@ -57,6 +58,14 @@ loop do
 		menu.choice "Change calculator" do
 			change = ask "Enter changed amount in cents", Integer
 			say "You have: #{change_calculator(change)} change"
+		end 
+
+		menu.choice "Stars" do 
+			number = ask "Enter a number", Integer
+			say number_of_stars(number)
+			while @number > 0 
+				say stars_left(number)	
+			end 
 		end 
 
 		menu.choice(:Exit) { exit }

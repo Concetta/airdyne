@@ -46,7 +46,8 @@ describe "User" do
 		end
 
 		it "must be able to add users" do
-			User.add_new_user(:name => 't2', :surname => 't3', :id_number => '3')
+			u1 = User.new({ :name => 't2', :surname => 't3', :id_number => '3' }) 
+			User.add_new_user(u1)
 			user = User.all.first
 			user.name.should == 't2'
 			user.surname.should == 't3'
