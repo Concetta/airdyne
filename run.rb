@@ -36,7 +36,7 @@ loop do
 		    		end 
 		    		submenu.choice "Delete" do
 		    			delete_user = ask "Which user id_number do you want to delete? "
-		    			user_to_delete = users.select { |user| user.id_number == delete_user }.first 
+		    			user_to_delete = users.find { |user| user.id_number == delete_user }
 		    			users.delete(user_to_delete)
 		    		end 
 		    		submenu.choice(:Back) { exit }

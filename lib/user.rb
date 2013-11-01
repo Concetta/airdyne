@@ -1,5 +1,22 @@
 class User
 
+	def self.all 
+		@all_users ||= []
+	end  
+
+	def self.add(user)
+		
+		all << user 
+	end 
+
+	def self.add_new_user(user)
+
+	end 
+ 
+	def self.reset
+		@all_users = []
+	end 
+
 	def initialize(options = {})
 		@name = options[:name]
 		@surname = options[:surname] 
