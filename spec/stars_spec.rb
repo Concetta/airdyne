@@ -17,6 +17,10 @@ end
 
 describe "vertical star printer" do 
 
+	it "returns '' if input 0" do 
+		get_vertical_stars_down(0).should == ""
+	end
+
 	it "returns '*' if input 1" do 
 		get_vertical_stars_down(1).should == "*"
 	end
@@ -35,6 +39,10 @@ describe "vertical star printer" do
 
 	it "returns '*\n**\n***\n****\n*****' if input 5" do 
 		get_vertical_stars_down(5).should == "*\n**\n***\n****\n*****"
+	end
+
+	it "returns '*\n**\n***\n****\n*****\n******\n*******' if input 7" do 
+		get_vertical_stars_down(7).should == "*\n**\n***\n****\n*****\n******\n*******"
 	end
 
 end

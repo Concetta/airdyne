@@ -65,11 +65,11 @@ loop do
 			up_or_down = ask "Enter 'Up' or 'Down'"
 			text = up_or_down.downcase
 			if text == 'up'
-				say stars_up(number)
+				
 			elsif text == 'down'
-				say stars_down(number)
+				say get_vertical_stars_down(number)
 			else
-				say number_of_stars(number)				
+				say get_horizontal_stars(number)			
 			end
 		end 
 
