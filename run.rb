@@ -63,16 +63,11 @@ loop do
 		menu.choice "Stars" do 
 			number = ask "Enter a number", Integer
 			up_or_down = ask "Enter 'Up' or 'Down'"
-			if up_or_down == 'Up'
-				say number_of_stars(number)
-				while @number > 0 
-					say stars_left(number)	
-				end
-			elsif up_or_down == 'Down'
-				@number = 0
-				while @number < number
-					say stars_forward(number)
-				end 
+			text = up_or_down.downcase
+			if text == 'up'
+				say stars_up(number)
+			elsif text == 'down'
+				say stars_down(number)
 			else
 				say number_of_stars(number)				
 			end
