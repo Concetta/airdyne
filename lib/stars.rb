@@ -14,3 +14,15 @@ def get_vertical_stars_down(number)
 		stars_result += get_horizontal_stars(number)
 	end 
 end 
+
+def get_vertical_stars_up(number)
+	if number == 1
+		get_horizontal_stars(number)
+	else 
+		stars_result = ""
+		(number.downto(2)).each do |x|
+			stars_result += get_horizontal_stars(x) + "\n"
+		end 
+		stars_result += get_horizontal_stars(1)
+	end 
+end 

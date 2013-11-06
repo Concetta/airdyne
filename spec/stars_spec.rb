@@ -45,6 +45,30 @@ describe "vertical star printer" do
 		get_vertical_stars_down(7).should == "*\n**\n***\n****\n*****\n******\n*******"
 	end
 
+		it "returns '*' if input 1" do 
+		get_vertical_stars_up(1).should == "*"
+	end
+
+	it "returns '**\n*' if input 2" do 
+		get_vertical_stars_up(2).should == "**\n*"
+	end
+
+	it "returns '***\n**\n*' if input 3" do 
+		get_vertical_stars_up(3).should == "***\n**\n*"
+	end
+
+	it "returns '****\n***\n**\n*' if input 4" do 
+		get_vertical_stars_up(4).should == "****\n***\n**\n*"
+	end	
+	
+	it "returns '*****\n****\n***\n**\n*' if input 5" do 
+		get_vertical_stars_up(5).should == "*****\n****\n***\n**\n*"
+	end
+
+	it "returns '*******\n******\n*****\n****\n***\n**\n*' if input 7" do 
+		get_vertical_stars_up(7).should == "*******\n******\n*****\n****\n***\n**\n*"
+	end		
+
 end
 
 
