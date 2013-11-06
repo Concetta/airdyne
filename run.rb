@@ -62,12 +62,17 @@ loop do
 
 		menu.choice "Stars" do 
 			number = ask "Enter a number", Integer
-			up_or_down = ask "Enter 'Up' or 'Down'"
-			text = up_or_down.downcase
+				while number <= 0
+					number = ask "Please enter a positve number", Integer
+				end 
+			vertical_options = ask "Enter 'Up' or 'Down' or 'Pyramid'"
+			text = vertical_options.downcase
 			if text == 'up'
 				say get_vertical_stars_up(number)
 			elsif text == 'down'
 				say get_vertical_stars_down(number)
+			elsif text == 'pyramid'
+				say star_pyramid(number)
 			else
 				say get_horizontal_stars(number)			
 			end
