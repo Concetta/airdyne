@@ -1,10 +1,10 @@
 def counting_vowels(vowels)
-	v = vowels 
+	v = vowels.downcase
 	v.count "aeiou" 
 end 
 
 def counting_consonants(consonants)
-	c = consonants
+	c = consonants.downcase
 	c.count "bcdfghjklmnpqrstuvwxyz"
 end 
 

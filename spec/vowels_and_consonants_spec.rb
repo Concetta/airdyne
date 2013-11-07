@@ -54,4 +54,10 @@ describe "counting vowels_and_consonants" do
 			counting_vowels_and_consonants("ab").should == "1 vowels and 1 consonants"
 		end  
 	end 
+
+	context "downcase uppercase letters" do 
+		it "returns 1 vowel and 1 consonants if input is 'AB'" do 
+			counting_vowels_and_consonants("AB").should == "1 vowels and 1 consonants"
+		end 
+	end 
 end 
