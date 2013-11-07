@@ -5,5 +5,5 @@ end
 
 def counting_consonants(consonants)
 	c = consonants
-	c.count "b"
+	c.count "bcdfghjklmnpqrstuvwxyz"
 end 

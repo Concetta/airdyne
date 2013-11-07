@@ -43,5 +43,9 @@ describe "counting vowels_and_consonants" do
 		it "returns 1 if input is 'ba'" do 
 			counting_consonants("ba").should == 1
 		end 
+
+		it "returns 6 if input is 'abcdefgeh'" do 
+			counting_consonants("abcdefgeh").should == 6
+		end 
 	end 
 end 
