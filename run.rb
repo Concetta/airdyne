@@ -4,6 +4,7 @@ require './lib/rands_and_cents.rb'
 require './lib/change_calculator.rb'
 require './lib/user.rb'
 require './lib/stars.rb'
+require './lib/vowels_and_consonants'
 
 users = []
 
@@ -87,6 +88,10 @@ loop do
 			end 
 		end 
 
+		menu.choice "Vowels and Consonants" do 
+			string = ask "Enter a sentence"
+			say "There are:  #{counting_vowels_and_consonants(string)} in your sentence"
+		end 
 		menu.choice(:Exit) { exit }
 	end
 end 
