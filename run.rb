@@ -75,6 +75,9 @@ loop do
 		    	end 
 		    	submenu.choice "Star Pyramid" do 
 		    		say star_pyramid(number)
+		    	end
+		    	submenu.choice "Empty Star Pyramid" do 
+		    		say empty_star_pyramid(number)
 		    	end 
 		    	submenu.choice "Horizontal Stars" do 
 		    		say get_horizontal_stars(number)

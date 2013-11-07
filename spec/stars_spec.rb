@@ -112,7 +112,33 @@ describe "print star pyramid" do
 		it "returns '     *\n    ***\n   *****\n  *******\n *********\n***********' if input 6" do 
 			star_pyramid(6).should == "     *\n    ***\n   *****\n  *******\n *********\n***********"
 		end
-	end  
+	end
+
+	context "empty star pyramid" do 
+		it "returns '*' if input 1" do 
+			empty_star_pyramid(1).should == "*"
+		end
+
+		it "returns ' *\n***' if input 2" do 
+			empty_star_pyramid(2).should == " *\n***"
+		end
+
+		it "returns '  *\n * *\n*****' if input 3" do 
+			empty_star_pyramid(3).should == "  *\n * *\n*****"
+		end
+
+		it "returns '   *\n  * *\n *   *\n*******' if input 4" do 
+			empty_star_pyramid(4).should == "   *\n  * *\n *   *\n*******"
+		end		
+
+		it "returns '    *\n   * *\n  *   *\n *     *\n*********' if input 5" do 
+			empty_star_pyramid(5).should == "    *\n   * *\n  *   *\n *     *\n*********"
+		end
+
+		it "returns '     *\n    * *\n   *   *\n  *     *\n *       *\n***********' if input 6" do 
+			empty_star_pyramid(6).should == "     *\n    * *\n   *   *\n  *     *\n *       *\n***********"
+		end					
+	end 
 end 
 
 
