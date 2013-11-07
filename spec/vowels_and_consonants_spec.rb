@@ -21,5 +21,9 @@ describe "counting vowels_and_consonants" do
 		it "returns 5 if input is 'aaaaa'" do 
 			counting_vowels("aaaaa").should == 5
 		end 
+
+		it "returns 7 if input is 'aaa aaa a'" do
+			counting_vowels("aaa aaa a").should == 7
+		end 
 	end 
 end 
