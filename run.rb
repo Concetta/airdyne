@@ -12,11 +12,9 @@ say "Menu"
 loop do 
 	choose do |menu|
 	    menu.prompt = "Please select a menu number"
-
 	    menu.choice "Users" do 
 		    loop do 
 		    	say "User Menu"
-
 		    	choose do |submenu|
 		    		submenu.prompt = "Please select a user menu number"
 		    		submenu.choice "List" do 
@@ -61,21 +59,29 @@ loop do
 		end 
 
 		menu.choice "Stars" do 
-			number = ask "Enter a number", Integer
+			loop do 
+			number = ask "Enter a star number", Integer
 				while number <= 0
 					number = ask "Please enter a positve number", Integer
 				end 
-			vertical_options = ask "Enter 'Up' or 'Down' or 'Pyramid'"
-			text = vertical_options.downcase
-			if text == 'up'
-				say get_vertical_stars_up(number)
-			elsif text == 'down'
-				say get_vertical_stars_down(number)
-			elsif text == 'pyramid'
-				say star_pyramid(number)
-			else
-				say get_horizontal_stars(number)			
-			end
+				say "Star Menu"
+				choose do |submenu|
+		    	submenu.prompt = "How would you like the stars displayed?"
+		    	submenu.choice "Vertical Stars Up" do 
+		    		say get_vertical_stars_up(number)
+		    	end 
+		    	submenu.choice "Vertical Stars Down" do
+		    		say get_vertical_stars_down(number)
+		    	end 
+		    	submenu.choice "Star Pyramid" do 
+		    		say star_pyramid(number)
+		    	end 
+		    	submenu.choice "Horizontal Stars" do 
+		    		say get_horizontal_stars(number)
+		    	end 
+		    	submenu.choice(:Back) { exit }
+				end
+			end 
 		end 
 
 		menu.choice(:Exit) { exit }
