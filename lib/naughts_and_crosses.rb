@@ -8,61 +8,32 @@ def naughts_and_crosses_board
 end 
 
 def position_on_board(input)
+	line_seperator = "-------\n"
+	empty_line = " | | |\n"
+	line_and_empty = line_seperator + empty_line
+	empty_and_line = empty_line + line_seperator
+	block_a = "o| | |\n"
+	block_b = " |o| |\n"
+	block_c = " | |o|\n"
 
 	if input == "A1"
-		"o| | |\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		" | | |\n" 
+		block_a + line_and_empty * 2 
 	elsif input == "B1"
-		" |o| |\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		" | | |\n" 		
+		block_b + line_and_empty * 2 		
 	elsif input == "C1"
-		" | |o|\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		" | | |\n" 
+		block_c + line_and_empty * 2 
 	elsif input == "A2"
-		" | | |\n" + 
-		"-------\n" + 
-		"o| | |\n" +
-		"-------\n" + 
-		" | | |\n" 
+		empty_and_line + block_a + line_and_empty 
 	elsif input == "B2"
-		" | | |\n" + 
-		"-------\n" + 
-		" |o| |\n" +
-		"-------\n" + 
-		" | | |\n" 
+		line_and_empty + block_b + line_and_empty 
 	elsif input == "C2"
-		" | | |\n" + 
-		"-------\n" + 
-		" | |o|\n" +
-		"-------\n" + 
-		" | | |\n" 
+		line_and_empty + block_c + line_and_empty 
 	elsif input == "A3"
-		" | | |\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		"o| | |\n" 
+		empty_and_line * 2 + block_a 
 	elsif input == "B3"
-		" | | |\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		" |o| |\n"
+		empty_and_line * 2 + block_b
 	elsif input == "C3"
-		" | | |\n" + 
-		"-------\n" + 
-		" | | |\n" +
-		"-------\n" + 
-		" | |o|\n" 
+		empty_and_line * 2 + block_c
 	end
 end 
 
