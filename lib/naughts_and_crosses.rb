@@ -1,27 +1,76 @@
 def play_on_board(current_board, next_play)
- 	empty_line = " | | |\n"
- 	row_a = "x| | |\n"
- 	row_b = " |x| |\n"
- 	row_c = " | |x|\n"
- 	if next_play == 1
- 		row_a + empty_line * 2
- 	elsif next_play == 2
- 		row_b + empty_line * 2
- 	elsif next_play == 3
- 		row_c + empty_line * 2 
- 	elsif next_play == 4
- 		empty_line + row_a + empty_line
- 	elsif next_play == 5
- 		empty_line + row_b + empty_line
- 	elsif next_play == 6
- 		empty_line + row_c + empty_line
- 	elsif next_play == 7
- 		empty_line * 2 + row_a
- 	elsif next_play == 8
- 		empty_line * 2 + row_b
- 	elsif next_play == 9
- 		empty_line * 2 + row_c				
- 	end
+	 if current_board == " | | |\n | | |\n | | |\n"
+	 		if next_play == 1
+	 			current_board[0] = "x"
+	 			current_board
+	 		elsif next_play == 2
+	 			current_board[2] = "x"
+	 			current_board
+	 		elsif next_play == 3
+	 			current_board[4] = "x"
+	 			current_board
+	 		elsif next_play == 4
+	 			current_board[7] = "x"
+	 			current_board
+	 		elsif next_play == 5
+	 			current_board[9] = "x"
+	 			current_board
+	 		elsif next_play == 6
+	 			current_board[11] = "x"
+	 			current_board
+	 		elsif next_play == 7 
+	 			current_board[14] = "x"
+	 			current_board
+	 		elsif next_play == 8 
+	 			current_board[16] = "x"
+	 			current_board
+			elsif next_play == 9 
+				current_board[18] = "x"
+	 			current_board
+	 		end 
+	 
+	 elsif next_play == 2
+	 	if current_board[0] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[4] == "x" 
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[7] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[9] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[11] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[14] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[16] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	elsif current_board[18] == "x"
+	 		current_board[2] = "o"
+	 		current_board
+	 	end 
+	 
+	 elsif next_play == 3
+	 		"x| |o|\n" + " | | |\n" * 2 
+	 elsif next_play == 4
+	 		"x| | |\no| | |\n" + " | | |\n"
+	 elsif next_play == 5
+	 		"x| | |\n |o| |\n" + " | | |\n"
+	 elsif next_play == 6
+	 		"x| | |\n | |o|\n" + " | | |\n"
+	 elsif next_play == 7
+	 		"x| | |\n" + " | | |\n" + "o| | |\n"
+	 elsif next_play == 8
+	 		"x| | |\n" + " | | |\n" + " |o| |\n"
+	 elsif next_play == 9
+	 	 	"x| | |\n" + " | | |\n" + " | |o|\n"
+	 end
 end 
 
 
