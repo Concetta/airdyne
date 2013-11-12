@@ -6,6 +6,9 @@ def play_on_board(current_board, next_play)
 	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
 	 		current_board[next_play * 2 - 2] = "x"
 	 		current_board
+	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 		current_board[2] = "x"
+	 		current_board
 	 	else 
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board
@@ -17,6 +20,9 @@ def play_on_board(current_board, next_play)
 	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
 	 			current_board[next_play * 2 - 1] = "x"
 	 			current_board
+	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 				current_board[next_play * 2 - 1] = "x"
+	 				current_board
 	 	else 
 	 		current_board[next_play * 2 - 1] = "o"
 	 		current_board
@@ -28,6 +34,9 @@ def play_on_board(current_board, next_play)
 	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
 	 			current_board[next_play * 2] = "x"
 	 			current_board
+	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 		current_board[next_play * 2] = "x"
+	 		current_board
 	 	else
 	 		current_board[next_play * 2] = "o"
 	 		current_board 

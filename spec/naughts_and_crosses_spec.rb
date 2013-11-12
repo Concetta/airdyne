@@ -199,7 +199,7 @@ describe "naughts_and_crosses board" do
 		end
 	end 
 
-	context "Third play is x, with x from position 3 - 9" do 
+	context "Third play is x, with x from position 3 - 9 and xo in postion 1 & 2" do 
 		it "Third play is x, play at position 3" do 
 			play_on_board("x|o| |\n | | |\n | | |\n", 3).should == 
 			"x|o|x|\n | | |\n | | |\n"
@@ -234,5 +234,42 @@ describe "naughts_and_crosses board" do
 			play_on_board("x|o| |\n | | |\n | | |\n", 9).should == 
 			"x|o| |\n | | |\n | |x|\n"
 		end   
-	end 
+	end
+
+	context "Third play is x, with x in position 2, 4-9, with play 1 and play 3 being x o" do 
+		it "Third play is x, play at position 2" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 2).should == 
+			"x|x|o|\n | | |\n | | |\n"
+		end
+
+		it "Third play is x, play at position 4" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 4).should == 
+			"x| |o|\nx| | |\n | | |\n"
+		end
+
+		it "Third play is x, play at position 5" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 5).should == 
+			"x| |o|\n |x| |\n | | |\n"
+		end  	  	  		
+	
+		it "Third play is x, play at position 6" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 6).should == 
+			"x| |o|\n | |x|\n | | |\n"
+		end 
+
+		it "Third play is x, play at position 7" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 7).should == 
+			"x| |o|\n | | |\nx| | |\n"
+		end 
+
+		it "Third play is x, play at position 8" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 8).should == 
+			"x| |o|\n | | |\n |x| |\n"
+		end
+
+		it "Third play is x, play at position 9" do 
+			play_on_board("x| |o|\n | | |\n | | |\n", 9).should == 
+			"x| |o|\n | | |\n | |x|\n"
+		end 	 		
+	end  
 end 
