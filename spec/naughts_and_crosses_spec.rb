@@ -236,12 +236,3 @@ describe "naughts_and_crosses board" do
 		end   
 	end 
 end 
-
-
-
-
-
-
-
-
-
