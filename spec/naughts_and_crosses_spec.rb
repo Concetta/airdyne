@@ -236,7 +236,7 @@ describe "naughts_and_crosses board" do
 		end   
 	end
 
-	context "Third play is x, with x in position 2, 4-9, with play 1 and play 3 being x o" do 
+	context "Third play is x, with x in position 2 & 4-9, with play 1 and play 3 being x o" do 
 		it "Third play is x, play at position 2" do 
 			play_on_board("x| |o|\n | | |\n | | |\n", 2).should == 
 			"x|x|o|\n | | |\n | | |\n"
@@ -270,6 +270,79 @@ describe "naughts_and_crosses board" do
 		it "Third play is x, play at position 9" do 
 			play_on_board("x| |o|\n | | |\n | | |\n", 9).should == 
 			"x| |o|\n | | |\n | |x|\n"
-		end 	 		
-	end  
+		end 	 	
+	end
+
+	context "Forth play is o in position 4 - 9, plays 1 - 3 is x x o" do 
+		it "Forth play is o, play at position 4" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 4).should == 
+			"x|x|o|\no| | |\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 5" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 5).should == 
+			"x|x|o|\n |o| |\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 6" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 6).should == 
+			"x|x|o|\n | |o|\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 7" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 7).should == 
+			"x|x|o|\n | | |\no| | |\n"
+		end
+
+		it "Forth play is o, play at position 8" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 8).should == 
+			"x|x|o|\n | | |\n |o| |\n"
+		end		   
+	
+		it "Forth play is o, play at position 9" do 
+			play_on_board("x|x|o|\n | | |\n | | |\n", 9).should == 
+			"x|x|o|\n | | |\n | |o|\n"
+		end		
+	end
+
+	context "Forth play is o in position 4 - 9, plays 1 - 3 is o x x" do 
+		it "Forth play is o, play at position 4" do 
+			play_on_board("o|x|x|\n | | |\n | | |\n", 4).should == 
+			"o|x|x|\no| | |\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 5" do 
+			play_on_board("o|x|x|\n | | |\n | | |\n", 5).should == 
+			"o|x|x|\n |o| |\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 7" do 
+			play_on_board("o|x|x|\n | | |\n | | |\n", 7).should == 
+			"o|x|x|\n | | |\no| | |\n"
+		end
+	end
+
+	context "Forth play is o in position 4 - 9, plays 1 - 3 is x o x" do 
+		it "Forth play is o, play at position 4" do 
+			play_on_board("x|o|x|\n | | |\n | | |\n", 4).should == 
+			"x|o|x|\no| | |\n | | |\n"
+		end
+
+		it "Forth play is o, play at position 7" do 
+			play_on_board("x|o|x|\n | | |\n | | |\n", 7).should == 
+			"x|o|x|\n | | |\no| | |\n"
+		end
+	end 
+
+	# context "Forth play is o staying at position 2, x is played in position 4 - 9" do 
+	# 	it "Forth play is o, play at position 2" do 
+	# 		play_on_board("o| |x|\n x| | |\n | | |\n", 2).should == 
+	# 		"x|o|x|\no| | |\n | | |\n"
+	# 	end
+
+		# it "Forth play is o, play at position 7" do 
+		# 	play_on_board("x|o|x|\n | | |\n | | |\n", 7).should == 
+		# 	"x|o|x|\n | | |\no| | |\n"
+		# end
+	# end 
 end 

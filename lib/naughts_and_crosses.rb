@@ -3,37 +3,37 @@ def play_on_board(current_board, next_play)
 		if current_board == " | | |\n | | |\n | | |\n"
 			current_board[next_play * 2 - 2] = "x"
 	 		current_board
-	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|o| |\n"
 	 		current_board[next_play * 2 - 2] = "x"
 	 		current_board
-	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x| |o|\n"
 	 		current_board[next_play * 2 - 2] = "x"
 	 		current_board
-	 	elsif current_board == "x| | |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x| | |\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board
-	 	elsif current_board == " |x| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == " |x| |\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board	
-	 	elsif current_board == " | |x|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == " | |x|\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board
-	 	elsif current_board == " | | |\nx| | |\n | | |\n"
+	 	elsif current_board[7..13] == "x| | |\n"
 	 	 	current_board[next_play * 2 - 2] = "o"
 	 		current_board		
-	 	elsif current_board == " | | |\n |x| |\n | | |\n"
+	 	elsif current_board[7..13] == " |x| |\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board
-	 	elsif current_board == " | | |\n | |x|\n | | |\n"
+	 	elsif current_board[7..13] == " | |x|\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board	 			 		
-	 	elsif current_board == " | | |\n | | |\nx| | |\n"
+	 	elsif current_board[14..20] == "x| | |\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board
-	 	elsif current_board == " | | |\n | | |\n |x| |\n"
+	 	elsif current_board[14..20] == " |x| |\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board	
-	 	elsif current_board == " | | |\n | | |\n | |x|\n"
+	 	elsif current_board[14..20] == " | |x|\n"
 	 		current_board[next_play * 2 - 2] = "o"
 	 		current_board	
 	 	end 
@@ -41,19 +41,28 @@ def play_on_board(current_board, next_play)
 	 	if current_board == " | | |\n | | |\n | | |\n"
 	 		current_board[next_play * 2 - 1] = "x"
 	 		current_board
-	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|o| |\n"
 	 		current_board[next_play * 2 - 1] = "x"
 	 		current_board
-	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x| |o|\n"
 	 		current_board[next_play * 2 - 1] = "x"
 	 		current_board
-	 	elsif current_board == "x| | |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|x|o|\n"
 	 		current_board[next_play * 2 - 1] = "o"
 	 		current_board
-	 	elsif current_board == " |x| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "o|x|x|\n"
 	 		current_board[next_play * 2 - 1] = "o"
 	 		current_board
-	 	elsif current_board == " | |x|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|o|x|\n"
+	 	 	current_board[next_play * 2 - 1] = "o"
+	 		current_board	
+	 	elsif current_board[0..6] == "x| | |\n"
+	 		current_board[next_play * 2 - 1] = "o"
+	 		current_board
+	 	elsif current_board[0..6] == " |x| |\n"
+	 		current_board[next_play * 2 - 1] = "o"
+	 		current_board
+	 	elsif current_board[0..6] == " | |x|\n"
 	 	 	current_board[next_play * 2 - 1] = "o"
 	 		current_board		
 	 	end 
@@ -61,19 +70,28 @@ def play_on_board(current_board, next_play)
 	 	if current_board == " | | |\n | | |\n | | |\n"
 	 		current_board[next_play * 2] = "x"
 	 		current_board
-	 	elsif current_board == "x|o| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|o| |\n"
 	 		current_board[next_play * 2] = "x"
 	 		current_board
-	 	elsif current_board == "x| |o|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x| |o|\n"
 	 		current_board[next_play * 2] = "x"
 	 		current_board
-	 	elsif current_board == "x| | |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == "x|x|o|\n"
+	 		current_board[next_play * 2] = "o"
+	 		current_board
+	 	elsif current_board[0..6] == "o|x|x|\n"
+	 		current_board[next_play * 2] = "o"
+	 		current_board 	
+	 	elsif current_board[0..6] == "x|o|x|\n"
+	 	 	current_board[next_play * 2] = "o"
+	 		current_board			
+	 	elsif current_board[0..6] == "x| | |\n"
 	 		current_board[next_play * 2] = "o"
 	 		current_board 
-	 	elsif current_board == " |x| |\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == " |x| |\n"
 	 		current_board[next_play * 2] = "o"
 	 		current_board 
-	 	elsif current_board == " | |x|\n | | |\n | | |\n"
+	 	elsif current_board[0..6] == " | |x|\n"
 	 	 	current_board[next_play * 2] = "o"
 	 		current_board 	 	 		
 	 	end 
