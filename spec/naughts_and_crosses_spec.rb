@@ -369,12 +369,12 @@ describe "naughts_and_crosses board" do
 	end
 
 	context "Sixth play is o" do 
-		it "Sixth play is o , play at position 3" do 
+		it "Sixth play is o, play at position 3" do 
 			play_on_board("x|x| |\n | |o|\n |o|x|\n", 3, 6).should == 
 			"x|x|o|\n | |o|\n |o|x|\n"
 		end
 
-		it "Sixth play is o , play at position 6" do 
+		it "Sixth play is o, play at position 6" do 
 			play_on_board("x|x| |\no| | |\n |o|x|\n", 6, 6).should == 
 			"x|x| |\no| |o|\n |o|x|\n"
 		end
@@ -383,5 +383,26 @@ describe "naughts_and_crosses board" do
 			play_on_board("x|x| |\no|o| |\n | |x|\n", 8, 6).should == 
 			"x|x| |\no|o| |\n |o|x|\n"
 		end
-	end  
+	end
+
+	context "Seventh play is x" do
+		it "Seventh play is x, play at position 1" do 
+			play_on_board(" |x|o|\nx| |o|\n |o|x|\n", 1, 7).should == 
+			"x|x|o|\nx| |o|\n |o|x|\n"
+		end
+	end
+
+	context "Eighth play is o" do 
+		it "Eighth play is o, play at position 5" do 
+			play_on_board("x|x|o|\nx| |o|\n |o|x|\n", 5, 8).should == 
+			"x|x|o|\nx|o|o|\n |o|x|\n"
+		end
+	end
+
+	context "Nineth play is x" do 
+		it "Nineth play is x, play at position 7" do
+			play_on_board("x|x|o|\nx|o|o|\n |o|x|\n", 7, 9).should == 
+			"x|x|o|\nx|o|o|\nx|o|x|\n"
+		end
+	end    
 end 
