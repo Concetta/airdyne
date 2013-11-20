@@ -404,5 +404,37 @@ describe "naughts_and_crosses board" do
 			play_on_board("x|x|o|\nx|o|o|\n |o|x|\n", 7, 9).should == 
 			"x|x|o|\nx|o|o|\nx|o|x|\n"
 		end
-	end    
+	end
+
+	context "If a place is filled then cannot change in row_one" do
+		it "Second play is o, play in position 1 which is already x" do
+			play_on_board("x| | |\n | | |\n | | |\n", 1, 2).should == 
+			"x| | |\n | | |\n | | |\n"
+		end
+
+		it "Second play is o, play in position 2 which is already x" do
+			play_on_board(" |x| |\n | | |\n | | |\n", 2, 2).should == 
+			" |x| |\n | | |\n | | |\n"
+		end
+
+		it "Second play is o, play in position 3 which is already x" do
+			play_on_board(" | |x|\n | | |\n | | |\n", 3, 2).should == 
+			" | |x|\n | | |\n | | |\n"
+		end
+
+		it "third play is x, play in position 1 which is already o" do 
+			play_on_board("o| |x|\n | | |\n | | |\n", 1, 3).should == 
+			"o| |x|\n | | |\n | | |\n"
+		end
+
+		it "third play is x, play in position 2 which is already o" do 
+			play_on_board(" |o|x|\n | | |\n | | |\n", 2, 3).should == 
+			" |o|x|\n | | |\n | | |\n"
+		end
+
+		it "third play is x, play in position 3 which is already o" do 
+			play_on_board(" |x|o|\n | | |\n | | |\n", 3, 3).should == 
+			" |x|o|\n | | |\n | | |\n"
+		end  
+	end  
 end 
