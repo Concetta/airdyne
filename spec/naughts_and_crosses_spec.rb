@@ -437,7 +437,55 @@ describe "naughts_and_crosses board" do
 
 		it "forth play is o, play in position 2 which is already o" do 
 			lambda{play_on_board("x|o|x|\n | | |\n | | |\n", 2, 4)}.should raise_error
-		end 
+		end
+
+		it "forth play is o, play in position 4 which is already o" do 
+			lambda{play_on_board("x| |x|\no| | |\n | | |\n", 4, 4)}.should raise_error
+		end
+
+		it "forth play is o, play in position 5 which is already x" do 
+			lambda{play_on_board(" | |x|\no|x| |\n | | |\n", 5, 4)}.should raise_error
+		end
+
+		it "forth play is o, play in position 5 which is already o" do 
+			lambda{play_on_board(" | |x|\n |o| |\nx| | |\n", 5, 4)}.should raise_error
+		end
+
+		it "forth play is o, play in position 6 which is already o" do 
+			lambda{play_on_board(" | |x|\n | |o|\nx| | |\n", 6, 4)}.should raise_error
+		end
+
+		it "forth play is o, play in position 6 which is already x" do 
+			lambda{play_on_board(" | |x|\n | |x|\no| | |\n", 6, 4)}.should raise_error
+		end
+
+		it "fifth play is x, play in position 6 which is already o" do 
+			lambda{play_on_board(" | |x|\n | |o|\nx| |o|\n", 6, 5)}.should raise_error
+		end
+
+		it "fifth play is x, play in position 7 which is already x" do 
+			lambda{play_on_board(" | |x|\n | |o|\nx| |o|\n", 7, 5)}.should raise_error
+		end	
+
+		it "fifth play is x, play in position 7 which is already o" do 
+			lambda{play_on_board(" | |x|\n | |o|\no|x| |\n", 7, 5)}.should raise_error
+		end
+
+		it "sixth play is o, play in position 7 which is already o" do 
+			lambda{play_on_board(" | |x|\n |x|o|\no|x| |\n", 7, 6)}.should raise_error
+		end
+
+		it "seventh play is x, play in position 8 which is already x" do 
+			lambda{play_on_board(" | |x|\n |x|o|\no|x|o|\n", 8, 7)}.should raise_error
+		end
+
+		it "eighth play is o, play in position 8 which is already o" do 
+			lambda{play_on_board("o| |x|\n |x|o|\nx|o|o|\n", 8, 8)}.should raise_error
+		end
+
+		it "eighth play is o, play in position 9 which is already o" do 
+			lambda{play_on_board("o| |x|\n |x|o|\nx|x|o|\n", 9, 8)}.should raise_error
+		end
 	end  
 end 
 
