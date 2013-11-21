@@ -6,19 +6,21 @@ def play_on_board(current_board, position, play_sequence)
 	row_three = (position >= 7)
 	if row_one
 		if current_board[0..6] == "o| |x|\n" && position == 1
-		 	play(current_board, position, 2, "o")
+		 	raise 'invalid play'
 		elsif current_board[0..6] == " |o|x|\n" && position == 2
-		 	play(current_board, position, 2, "o")
+		 	raise 'invalid play'
 		elsif current_board[0..6] == " |x|o|\n" && position == 3
-		 	play(current_board, position, 2, "o")
+		 	raise 'invalid play'
+		 elsif current_board[0..6] == "x|o|x|\n" && position == 2
+		 	raise 'invalid play'
 		elsif play_x
 		 	play(current_board, position, 2, "x") 
-		elsif current_board[0..6] == "x| | |\n" && position == 1
-			play(current_board, position, 2, "x") 
-		elsif current_board[0..6] == " |x| |\n" && position == 2
-			play(current_board, position, 2, "x") 
-		elsif current_board[0..6] == " | |x|\n" && position == 3
-			play(current_board, position, 2, "x") 
+		elsif current_board[0] == "x" && position == 1
+			raise 'invalid play'
+		elsif current_board[2] == "x" && position == 2
+ 			raise 'invalid play'
+		elsif current_board[4] == "x" && position == 3
+			raise 'invalid play'
 		elsif play_o
 			play(current_board, position, 2, "o")
 		end 

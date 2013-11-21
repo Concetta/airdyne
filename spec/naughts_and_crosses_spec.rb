@@ -408,33 +408,37 @@ describe "naughts_and_crosses board" do
 
 	context "If a place is filled then cannot change in row_one" do
 		it "Second play is o, play in position 1 which is already x" do
-			play_on_board("x| | |\n | | |\n | | |\n", 1, 2).should == 
-			"x| | |\n | | |\n | | |\n"
+			lambda{play_on_board("x| | |\n | | |\n | | |\n", 1, 2)}.should raise_error
 		end
 
 		it "Second play is o, play in position 2 which is already x" do
-			play_on_board(" |x| |\n | | |\n | | |\n", 2, 2).should == 
-			" |x| |\n | | |\n | | |\n"
+			lambda{play_on_board(" |x| |\n | | |\n | | |\n", 2, 2)}.should raise_error
 		end
 
 		it "Second play is o, play in position 3 which is already x" do
-			play_on_board(" | |x|\n | | |\n | | |\n", 3, 2).should == 
-			" | |x|\n | | |\n | | |\n"
+			lambda{play_on_board(" | |x|\n | | |\n | | |\n", 3, 2)}.should raise_error
 		end
 
 		it "third play is x, play in position 1 which is already o" do 
-			play_on_board("o| |x|\n | | |\n | | |\n", 1, 3).should == 
-			"o| |x|\n | | |\n | | |\n"
+			lambda{play_on_board("o| |x|\n | | |\n | | |\n", 1, 3)}.should raise_error
 		end
 
 		it "third play is x, play in position 2 which is already o" do 
-			play_on_board(" |o|x|\n | | |\n | | |\n", 2, 3).should == 
-			" |o|x|\n | | |\n | | |\n"
+			lambda{play_on_board(" |o|x|\n | | |\n | | |\n", 2, 3)}.should raise_error
 		end
 
 		it "third play is x, play in position 3 which is already o" do 
-			play_on_board(" |x|o|\n | | |\n | | |\n", 3, 3).should == 
-			" |x|o|\n | | |\n | | |\n"
-		end  
+			lambda{play_on_board(" |x|o|\n | | |\n | | |\n", 3, 3)}.should raise_error
+		end
+
+		it "forth play is o, play in position 1 which is already x" do 
+			lambda{play_on_board("x|x|o|\n | | |\n | | |\n", 1, 4)}.should raise_error
+		end
+
+		it "forth play is o, play in position 2 which is already o" do 
+			lambda{play_on_board("x|o|x|\n | | |\n | | |\n", 2, 4)}.should raise_error
+		end 
 	end  
 end 
+
+
