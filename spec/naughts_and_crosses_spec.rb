@@ -486,7 +486,39 @@ describe "naughts_and_crosses board" do
 		it "eighth play is o, play in position 9 which is already o" do 
 			lambda{play_on_board("o| |x|\n |x|o|\nx|x|o|\n", 9, 8)}.should raise_error
 		end
-	end  
+	end
+
+	context "Three x's in a row is a win" do 
+		it "Three x's in position 1, 2, final play is 3" do
+			play_on_board("x|x| |\n |o|o|\n | | |\n", 3, 5).should == 
+			"x|x|x|\n |o|o|\n | | |\n Player 1 wins"
+		end
+
+		it "Three o's in position 1, 2, final play is 3" do
+			play_on_board("o|o| |\n |x|x|\nx| | |\n", 3, 6).should == 
+			"o|o|o|\n |x|x|\nx| | |\n Player 2 wins"
+		end
+
+		it "Three x's in position 4, 7, final play is 1" do
+			play_on_board(" | | |\nx|o|o|\nx| | |\n", 1, 5).should == 
+			"x| | |\nx|o|o|\nx| | |\n Player 1 wins"
+		end
+
+		it "Three o's in position 4, 7, final play is 1" do
+			play_on_board(" |x| |\no|x|x|\no| | |\n", 1, 6).should == 
+			"o|x| |\no|x|x|\no| | |\n Player 2 wins"
+		end
+
+		it "Three x's in position 5, 8, final play is 2" do
+			play_on_board("o| | |\n |x|o|\n |x| |\n", 2, 5).should == 
+			"o|x| |\n |x|o|\n |x| |\n Player 1 wins"
+		end
+
+		it "Three o's in position 5, 8, final play is 2" do
+			play_on_board("x| | |\nx|o|x|\n |o| |\n", 2, 6).should == 
+			"x|o| |\nx|o|x|\n |o| |\n Player 2 wins"
+		end
+	end	
 end 
 
 
