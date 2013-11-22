@@ -401,8 +401,8 @@ describe "naughts_and_crosses board" do
 
 	context "Nineth play is x" do 
 		it "Nineth play is x, play at position 7" do
-			play_on_board("x|x|o|\nx|o|o|\n |o|x|\n", 7, 9).should == 
-			"x|x|o|\nx|o|o|\nx|o|x|\n"
+			play_on_board("o|x|x|\nx|o|o|\n |o|x|\n", 7, 9).should == 
+			"o|x|x|\nx|o|o|\nx|o|x|\n"
 		end
 	end
 
@@ -494,9 +494,29 @@ describe "naughts_and_crosses board" do
 			"x|x|x|\n |o|o|\n | | |\n Player 1 wins"
 		end
 
+		it "Three x's in position 4, 5, final play is 6" do
+			play_on_board(" |o|o|\nx|x| |\n | | |\n", 6, 5).should == 
+			" |o|o|\nx|x|x|\n | | |\n Player 1 wins"
+		end
+
+		it "Three x's in position 7, 8, final play is 9" do
+			play_on_board(" |o|o|\n | | |\nx|x| |\n", 9, 5).should == 
+			" |o|o|\n | | |\nx|x|x|\n Player 1 wins"
+		end
+
 		it "Three o's in position 1, 2, final play is 3" do
 			play_on_board("o|o| |\n |x|x|\nx| | |\n", 3, 6).should == 
 			"o|o|o|\n |x|x|\nx| | |\n Player 2 wins"
+		end
+
+		it "Three o's in position 4, 5, final play is 6" do
+			play_on_board(" |x| |\no|o| |\nx|x| |\n", 6, 6).should == 
+			" |x| |\no|o|o|\nx|x| |\n Player 2 wins"
+		end
+
+		it "Three o's in position 7, 8, final play is 9" do
+			play_on_board(" |x| |\nx|x| |\no|o| |\n", 9, 6).should == 
+			" |x| |\nx|x| |\no|o|o|\n Player 2 wins"
 		end
 
 		it "Three x's in position 4, 7, final play is 1" do
@@ -517,6 +537,36 @@ describe "naughts_and_crosses board" do
 		it "Three o's in position 5, 8, final play is 2" do
 			play_on_board("x| | |\nx|o|x|\n |o| |\n", 2, 6).should == 
 			"x|o| |\nx|o|x|\n |o| |\n Player 2 wins"
+		end
+
+		it "Three x's in position 6, 9, final play is 3" do
+			play_on_board("o| | |\n |o|x|\n |o|x|\n", 3, 5).should == 
+			"o| |x|\n |o|x|\n |o|x|\n Player 1 wins"
+		end
+
+		it "Three o's in position 6, 9, final play is 3" do
+			play_on_board("x| | |\nx|x|o|\n | |o|\n", 3, 6).should == 
+			"x| |o|\nx|x|o|\n | |o|\n Player 2 wins"
+		end
+
+		it "Three x's in position 1, 5, final play is 9" do
+			play_on_board("x| |o|\no|x| |\n |o| |\n", 9, 5).should == 
+			"x| |o|\no|x| |\n |o|x|\n Player 1 wins"
+		end
+
+		it "Three x's in position 3, 7, final play is 5" do
+			play_on_board("o| |x|\n | | |\nx| |o|\n", 5, 5).should == 
+			"o| |x|\n |x| |\nx| |o|\n Player 1 wins"
+		end
+
+		it "Three o's in position 3, 7, final play is 5" do
+			play_on_board("x| |o|\nx| |x|\no| | |\n", 5, 6).should == 
+			"x| |o|\nx|o|x|\no| | |\n Player 2 wins"
+		end
+
+		it "Three o's in position 1, 5, final play is 9" do
+			play_on_board("o| |x|\nx|o|x|\n | | |\n", 9, 6).should == 
+			"o| |x|\nx|o|x|\n | |o|\n Player 2 wins"
 		end
 	end	
 end 

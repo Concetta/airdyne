@@ -4,13 +4,47 @@ def play_on_board(current_board, position, play_sequence)
 	row_one = (position >= 1 && position < 4)
 	row_two = (position >= 4 && position < 7)
 	row_three = (position >= 7)
-	if row_one
+	result = if row_one
 			check_and_play(current_board, position, 2, play_x, play_o)
-	elsif row_two
-		check_and_play(current_board, position, 1, play_x, play_o) 
-	elsif row_three
-		check_and_play(current_board, position, 0, play_x, play_o) 
-	end
+		elsif row_two
+			check_and_play(current_board, position, 1, play_x, play_o) 
+		elsif row_three
+			check_and_play(current_board, position, 0, play_x, play_o) 
+		end
+	if result[0] == "x" && result[2] == "x" && result[4] == "x"
+		result += " Player 1 wins"
+	elsif result[7] == "x" && result[9] == "x" && result[11] == "x"
+		result += " Player 1 wins"
+	elsif result[14] == "x" && result[16] == "x" && result[18] == "x"
+		result += " Player 1 wins"
+	elsif result[0] == "x" && result[7] == "x" && result[14] == "x"
+		result += " Player 1 wins"
+	elsif result[2] == "x" && result[9] == "x" && result[16] == "x"
+		result += " Player 1 wins"
+	elsif result[4] == "x" && result[11] == "x" && result[18] == "x"
+		result += " Player 1 wins"
+	elsif result[0] == "x" && result[9] == "x" && result[18] == "x"
+		result += " Player 1 wins"
+	elsif result[4] == "x" && result[9] == "x" && result[14] == "x"
+		result += " Player 1 wins"	
+	elsif result[0] == "o" && result[2] == "o" && result[4] == "o"
+		result += " Player 2 wins"
+	elsif result[7] == "o" && result[9] == "o" && result[11] == "o"
+		result += " Player 2 wins"
+	elsif result[14] == "o" && result[16] == "o" && result[18] == "o"
+		result += " Player 2 wins"		
+	elsif result[0] == "o" && result[7] == "o" && result[14] == "o"
+		result += " Player 2 wins"
+	elsif result[2] == "o" && result[9] == "o" && result[16] == "o"
+		result += " Player 2 wins"
+	elsif result[4] == "o" && result[11] == "o" && result[18] == "o"
+		result += " Player 2 wins"
+	elsif result[4] == "o" && result[9] == "o" && result[14] == "o"
+		result += " Player 2 wins"
+	elsif result[0] == "o" && result[9] == "o" && result[18] == "o"
+		result += " Player 2 wins"
+	end 
+	result 
 end 
 
 def play(current_board, position, row_move, x_or_o)
@@ -18,29 +52,12 @@ def play(current_board, position, row_move, x_or_o)
 		current_board 
 end
 
-def winner(current_board, position, row_move, x_or_o, player_wins)
-		current_board[position * 2 - row_move] = x_or_o
-		current_board + player_wins
-end
-
 def check_and_play(current_board, position, row_move, play_x, play_o)
-		if current_board[position * 2 - row_move] != " "
-			raise 'invalid play'
-		elsif current_board[0..20] == "x|x| |\n |o|o|\n | | |\n" && play_x
-			winner(current_board, position, row_move, "x", " Player 1 wins")
-		elsif current_board[0..20] == " | | |\nx|o|o|\nx| | |\n" && play_x
-			winner(current_board, position, row_move, "x", " Player 1 wins")
-		elsif current_board[0..20] == "o| | |\n |x|o|\n |x| |\n" && play_x
-			winner(current_board, position, row_move, "x", " Player 1 wins")
-		elsif current_board[0..20] == "o|o| |\n |x|x|\nx| | |\n" && play_o
-			winner(current_board, position, row_move, "o", " Player 2 wins")
-		elsif current_board[0..20] == " |x| |\no|x|x|\no| | |\n" && play_o
-			winner(current_board, position, row_move, "o", " Player 2 wins")
-		elsif current_board[0..20] == "x| | |\nx|o|x|\n |o| |\n" && play_o
-			winner(current_board, position, row_move, "o", " Player 2 wins")
-		elsif play_x
-		 	play(current_board,position, row_move, "x")
-		elsif play_o
+	if current_board[position * 2 - row_move] != " "
+		raise 'invalid play'
+	elsif play_x
+		 	play(current_board,position, row_move, "x") 
+	elsif play_o
 		 	play(current_board,position, row_move, "o")  			
-		end 
+	end 
 end 
