@@ -15,7 +15,9 @@ def play_on_board(current_board, position, play_sequence)
 		result += " Player 1 wins"
 	elsif check_for_winner(result, "o")
 		result += " Player 2 wins"
-	end 
+	elsif play_sequence == 9 
+		result += " No more moves"
+	end
 	result 
 end 
 

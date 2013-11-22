@@ -402,7 +402,7 @@ describe "naughts_and_crosses board" do
 	context "Nineth play is x" do 
 		it "Nineth play is x, play at position 7" do
 			play_on_board("o|x|x|\nx|o|o|\n |o|x|\n", 7, 9).should == 
-			"o|x|x|\nx|o|o|\nx|o|x|\n"
+			"o|x|x|\nx|o|o|\nx|o|x|\n No more moves"
 		end
 	end
 
@@ -569,6 +569,13 @@ describe "naughts_and_crosses board" do
 			"o| |x|\nx|o|x|\n | |o|\n Player 2 wins"
 		end
 	end
+
+	context "if all positions have been filled and no winner" do
+		it "All positions played after position 7 is filled" do
+			play_on_board("o|x|x|\nx|o|o|\n |o|x|\n", 7, 9).should == 
+			"o|x|x|\nx|o|o|\nx|o|x|\n No more moves"
+		end	
+	end 
 end 
 
 
