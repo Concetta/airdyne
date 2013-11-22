@@ -568,7 +568,7 @@ describe "naughts_and_crosses board" do
 			play_on_board("o| |x|\nx|o|x|\n | | |\n", 9, 6).should == 
 			"o| |x|\nx|o|x|\n | |o|\n Player 2 wins"
 		end
-	end	
+	end
 end 
 
 
