@@ -1,3 +1,9 @@
+require "highline/import"
+
+def empty_board
+	" | | |\n | | |\n | | |\n"
+end 
+
 def play_on_board(current_board, position, play_sequence)
 	play_x = play_sequence.odd?
 	play_o = play_sequence.even? 
@@ -13,10 +19,13 @@ def play_on_board(current_board, position, play_sequence)
 		end
 	if check_for_winner(result, "x")
 		result += " Player 1 wins"
+		result 
 	elsif check_for_winner(result, "o")
 		result += " Player 2 wins"
+		result
 	elsif play_sequence == 9 
 		result += " No more moves"
+		result
 	end
 	result 
 end 
