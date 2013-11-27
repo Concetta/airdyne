@@ -5,7 +5,7 @@ require './lib/change_calculator.rb'
 require './lib/user.rb'
 require './lib/stars.rb'
 require './lib/vowels_and_consonants.rb'
-require './ib/person.rb'
+require './lib/person.rb'
 
 users = []
 

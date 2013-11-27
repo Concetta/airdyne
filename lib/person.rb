@@ -8,9 +8,9 @@ class Person
 
 	def age_category
 		category = @age.to_i
-		if category >= 0 && category <= 1
+		if category == 0 or category == 1
 			"Baby"
-		elsif category >= 2 && category <= 3
+		elsif category == 2 or category == 3
 			"Toddler"
 		elsif category >= 4 && category <= 12
 			"Child"
