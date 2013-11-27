@@ -75,4 +75,34 @@ describe Person do
 		person1.age = "67"
 		person1.age_category.should == "Pensioner"
 	end 
+
+	it "Concetta is older than Grant" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 10
+		person2.first_name = "Concetta"
+		Person.who_is_older(person1, person2).should == "Concetta"
+	end
+
+	it "Grant is older than Wilhelm" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 6
+		person2.first_name = "Wilhelm"
+		Person.who_is_older(person1, person2).should == "Grant"
+	end
+
+	it "Grant and Pawel are the same age" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 9
+		person2.first_name = "Pawel"
+		Person.who_is_older(person1, person2).should == "They are the same age"
+	end
 end 

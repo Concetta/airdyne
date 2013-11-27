@@ -2,6 +2,16 @@ class Person
 
 	attr_accessor :first_name, :last_name, :age
 
+	def Person.who_is_older(person1, person2)
+		if person1.age < person2.age
+			person2.first_name
+		elsif person1.age > person2.age
+			person1.first_name
+		else 
+			"They are the same age"
+		end 
+	end 
+
 	def full_name
 	 @first_name + " " + @last_name
 	end 
