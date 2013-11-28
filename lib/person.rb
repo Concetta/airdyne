@@ -3,7 +3,7 @@ class Person
 	attr_accessor :first_name, :last_name, :age
 
 	def Person.who_is_oldest(*people)
-		people.sort_by! {|x| x.age}
+		people = people.sort_by {|x| x.age}
 		people.last.first_name
 	end 
 
