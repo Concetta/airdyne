@@ -2,6 +2,10 @@ class Person
 
 	attr_accessor :first_name, :last_name, :age
 
+	def is_family_of?(person2)
+		@last_name == @last_name
+	end 
+
 	def Person.who_is_oldest(*people)
 		people = people.sort_by {|x| x.age}
 		people.last.first_name

@@ -154,4 +154,14 @@ describe Person do
 		person4.first_name = "Concetta"
 		Person.who_is_oldest(person1, person2, person3, person4).should == "Richard"
 	end
+
+	it "Grant is family of Adam" do 
+		person1 = Person.new
+		person1.first_name = "Grant"
+		person1.last_name = "Speelman"
+		person2 = Person.new
+		person2.first_name = "Adam"
+		person2.last_name = "Speelman"
+		person1.is_family_of?(person2).should == true 
+	end 
 end 
