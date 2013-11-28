@@ -2,6 +2,11 @@ class Person
 
 	attr_accessor :first_name, :last_name, :age
 
+	def Person.who_is_oldest(*people)
+		people.sort_by! {|x| x.age}
+		people.last.first_name
+	end 
+
 	def Person.who_is_older(person1, person2)
 		if person1.age < person2.age
 			person2.first_name

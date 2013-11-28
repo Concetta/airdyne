@@ -105,4 +105,53 @@ describe Person do
 		person2.first_name = "Pawel"
 		Person.who_is_older(person1, person2).should == "They are the same age"
 	end
+
+	it "Concetta is the oldest of two people" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 10
+		person2.first_name = "Concetta"
+		Person.who_is_oldest(person1, person2).should == "Concetta"
+	end
+
+	it "Grant is the oldest of two people" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 6
+		person2.first_name = "Wilhelm"
+		Person.who_is_oldest(person1, person2).should == "Grant"
+	end
+
+	it "Richard is the oldest of three people" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 6
+		person2.first_name = "Wilhelm"
+		person3 = Person.new
+		person3.age = 11
+		person3.first_name = "Richard"
+		Person.who_is_oldest(person1, person2, person3).should == "Richard"
+	end
+
+	it "Richard is the oldest of four people" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.first_name = "Grant"
+		person2 = Person.new
+		person2.age = 6
+		person2.first_name = "Wilhelm"
+		person3 = Person.new
+		person3.age = 11
+		person3.first_name = "Richard"
+		person4 = Person.new
+		person4.age = 10
+		person4.first_name = "Concetta"
+		Person.who_is_oldest(person1, person2, person3, person4).should == "Richard"
+	end
 end 
