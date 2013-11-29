@@ -164,4 +164,42 @@ describe Person do
 		person2.last_name = "Speelman"
 		person1.is_family_of?(person2).should == true 
 	end 
+
+	it "person first name and age is valid" do 
+		person1 = Person.new
+		person1.first_name = "Grant"
+		person1.age = 9 
+		person1.is_valid?.should == true
+	end 
+
+	it "person with just first name is not valid" do 
+		person1 = Person.new
+		person1.first_name = "Grant"
+		person1.is_valid?.should == false
+	end
+
+	it "person with just age is not valid" do 
+		person1 = Person.new
+		person1.age = 9
+		person1.is_valid?.should == false
+	end  
+
+	it "person with no age or no name is not valid" do 
+		person1 = Person.new
+		person1.is_valid?.should == false
+	end 
+
+	it "person age must be an integer" do 
+		person1 = Person.new
+		person1.first_name = "Grant"
+		person1.age = "a"
+		person1.is_valid?.should == false
+	end 
+
+	it "person age must be an integer" do 
+		person1 = Person.new
+		person1.first_name = "Grant"
+		person1.age = 9.1
+		person1.is_valid?.should == false
+	end       
 end 

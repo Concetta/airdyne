@@ -2,6 +2,14 @@ class Person
 
 	attr_accessor :first_name, :last_name, :age
 
+	def is_valid? 	
+		if @first_name && @age.is_a?(Integer) 
+			true
+		else
+			false
+		end 
+	end 
+
 	def is_family_of?(person2)
 		@last_name == @last_name
 	end 
