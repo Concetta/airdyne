@@ -151,5 +151,34 @@ describe ConnectGame do
 				@game.whose_turn.should == "Player Blue"
 			end 
 		end 
+
+		context "eighth move" do 
+			it "Player Blue plays in row 1 with Blue in row 1 and Red in row 1 and 2" do 
+				@game.play(2)
+				@game.board.should == ".....................R..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(1)
+				@game.board.should == "....................BR..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(1)
+				@game.board.should == "...............R....BR..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(1)
+				@game.board.should == "..........B....R....BR..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(2)
+				@game.board.should == "..........B....RR...BR..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(1)
+				@game.board.should == ".....B....B....RR...BR..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(2)
+				@game.board.should == ".....B....BR...RR...BR..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(1)
+				@game.board.should == "B....B....BR...RR...BR..."
+				@game.whose_turn.should == "Player Red"
+			end 
+		end 
 	end 
 end 

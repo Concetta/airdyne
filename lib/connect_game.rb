@@ -12,21 +12,33 @@ class ConnectGame
 			if @board[20] == "." && @whose_turn == "Player Red"
 				@board[20] = "R"
 				@board
-			elsif @board[15] == "." && @whose_turn == "Player Blue"
-				@board[15] = "B"
-				@board
+			elsif @board[20] == "." && @whose_turn == "Player Blue"
+				@board[20] = "B"
+				@board			
 			elsif @board[15] == "." && @whose_turn == "Player Red"
 				@board[15] = "R"
 				@board
-			elsif @board[10] == "." && @whose_turn == "Player Red"
+			elsif @board[15] == "." && @whose_turn == "Player Blue"
+				@board[15] = "B"
+				@board
+ 			elsif @board[10] == "." && @whose_turn == "Player Red"
 				@board[10] = "R"
+				@board
+			elsif @board[10] == "." && @whose_turn == "Player Blue"
+				@board[10] = "B"
 				@board
 			elsif @board[5] == "." && @whose_turn == "Player Blue"
 				@board[5] = "B"
 				@board
-			elsif @board[5 * 0] == "." && @whose_turn == "Player Red"
-				@board[5 * 0] = "R"
+			elsif @board[5] == "." && @whose_turn == "Player Blue"
+				@board[5] = "B"
+				@board			
+			elsif @board[0] == "." && @whose_turn == "Player Red"
+				@board[0] = "R"
 				@board
+			elsif @board[0] == "." && @whose_turn == "Player Blue"
+				@board[0] = "B"
+				@board 
 			end 
 		elsif row == 2
 			if @board[21] == "." && @whose_turn == "Player Red"
@@ -35,8 +47,14 @@ class ConnectGame
 			elsif @board[21] == "." && @whose_turn == "Player Blue"
 				@board[21] = "B"
 				@board
+			elsif @board[16] == "." && @whose_turn == "Player Red"
+				@board[16] = "R"
+				@board
 			elsif @board[16] == "." && @whose_turn == "Player Blue"
 				@board[16] = "B"
+				@board
+			elsif @board[11] == "." && @whose_turn == "Player Red"
+				@board[11] = "R"
 				@board
 			end 
 		elsif row == 3
