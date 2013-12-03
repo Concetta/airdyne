@@ -52,16 +52,53 @@ class ConnectGame
 				if @board[22] == "."
 					@board[22] = r_or_b
 					@board
-				elsif @board[17] = "."
+				elsif @board[17] == "."
 					@board[17] = r_or_b
+					@board
+				elsif @board[12] == "."
+					@board[12] = r_or_b
+					@board
+				elsif @board[7] == "."
+					@board[7] = r_or_b
+					@board
+				elsif @board[2] == "."
+					@board[2] = r_or_b
 					@board 
 				end 
 		elsif row == 4
-			@board[23] = "R"
-			@board
+			if @board[23] == "."
+				@board[23] = r_or_b
+				@board
+			elsif @board[18] == "."
+				@board[18] = r_or_b
+				@board
+			elsif @board[13] == "."
+				@board[13] = r_or_b
+				@board
+			elsif @board[8] == "."
+				@board[8] = r_or_b
+				@board
+			elsif @board[3] == "."
+				@board[3] = r_or_b
+				@board
+			end 
 		elsif row == 5
-			@board[24] = "R"
-			@board
+			if @board[24] == "."
+				@board[24] = r_or_b
+				@board
+			elsif @board[19] == "."
+				@board[19] = r_or_b
+				@board
+			elsif @board[14] == "."
+				@board[14] = r_or_b
+				@board
+			elsif @board[9] == "."
+				@board[9] = r_or_b
+				@board
+			elsif @board[4] == "."
+				@board[4] = r_or_b
+				@board
+			end 
 		end  
 		
 		if @whose_turn == "Player Red"
