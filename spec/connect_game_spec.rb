@@ -152,6 +152,55 @@ describe ConnectGame do
 			end 
 		end 
 
+		context "sixth move" do 
+			it "Player Red plays in row 2 with Blue in row 2 and Red in row 3" do 
+				@game.play(2)
+				@game.board.should == ".....................R..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == "................B....R..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(3)
+				@game.board.should == "................B....RR.."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == "...........B....B....RR.."
+				@game.whose_turn.should == "Player Red"
+				@game.play(3)
+				@game.board.should == "...........B....BR...RR.."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == "......B....B....BR...RR.."
+				@game.whose_turn.should == "Player Red"
+			end 	
+		end 
+
+		context "seventh move" do 
+			it "Player Blue plays in row 2 with Blue in row 2 and row 3 and Red in row 2 - 4" do 
+				@game.play(2)
+				@game.board.should == ".....................R..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == "................B....R..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(2)
+				@game.board.should == "...........R....B....R..."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == "......B....R....B....R..."
+				@game.whose_turn.should == "Player Red"
+				@game.play(3)
+				@game.board.should == "......B....R....B....RR.."
+				@game.whose_turn.should == "Player Blue"
+				@game.play(2)
+				@game.board.should == ".B....B....R....B....RR.."
+				@game.whose_turn.should == "Player Red"
+				@game.play(3)
+				@game.board.should == ".B....B....R....BR...RR.."
+				@game.whose_turn.should == "Player Blue"
+			end 	
+		end 
+
 		context "eighth move" do 
 			it "Player Blue plays in row 1 with Blue in row 1 and Red in row 1 and 2" do 
 				@game.play(2)

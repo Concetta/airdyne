@@ -8,58 +8,54 @@ class ConnectGame
 	end 
 
 	def play(row)
+		if @whose_turn == "Player Red"
+			r_or_b = "R"
+		else 
+			r_or_b = "B"
+		end 
+		
 		if row == 1 
-			if @board[20] == "." && @whose_turn == "Player Red"
-				@board[20] = "R"
+			if @board[20] == "." 
+				@board[20] = r_or_b
+				@board		
+			elsif @board[15] == "."
+				@board[15] = r_or_b
 				@board
-			elsif @board[20] == "." && @whose_turn == "Player Blue"
-				@board[20] = "B"
-				@board			
-			elsif @board[15] == "." && @whose_turn == "Player Red"
-				@board[15] = "R"
+ 			elsif @board[10] == "." 
+				@board[10] = r_or_b
 				@board
-			elsif @board[15] == "." && @whose_turn == "Player Blue"
-				@board[15] = "B"
+			elsif @board[5] == "." 
+				@board[5] = r_or_b
 				@board
- 			elsif @board[10] == "." && @whose_turn == "Player Red"
-				@board[10] = "R"
+			elsif @board[0] == "." 
+				@board[0] = r_or_b
 				@board
-			elsif @board[10] == "." && @whose_turn == "Player Blue"
-				@board[10] = "B"
-				@board
-			elsif @board[5] == "." && @whose_turn == "Player Blue"
-				@board[5] = "B"
-				@board
-			elsif @board[5] == "." && @whose_turn == "Player Blue"
-				@board[5] = "B"
-				@board			
-			elsif @board[0] == "." && @whose_turn == "Player Red"
-				@board[0] = "R"
-				@board
-			elsif @board[0] == "." && @whose_turn == "Player Blue"
-				@board[0] = "B"
-				@board 
 			end 
 		elsif row == 2
-			if @board[21] == "." && @whose_turn == "Player Red"
-				@board[21] = "R"
+			if @board[21] == "." 
+				@board[21] = r_or_b
 				@board
-			elsif @board[21] == "." && @whose_turn == "Player Blue"
-				@board[21] = "B"
+			elsif @board[16] == "." 
+				@board[16] = r_or_b
 				@board
-			elsif @board[16] == "." && @whose_turn == "Player Red"
-				@board[16] = "R"
+			elsif @board[11] == "." 
+				@board[11] = r_or_b
 				@board
-			elsif @board[16] == "." && @whose_turn == "Player Blue"
-				@board[16] = "B"
+			elsif @board[6] == "."
+				@board[6] = r_or_b
 				@board
-			elsif @board[11] == "." && @whose_turn == "Player Red"
-				@board[11] = "R"
+			elsif @board[1] == "."
+				@board[1] = r_or_b
 				@board
 			end 
 		elsif row == 3
-			@board[22] = "R"
-			@board
+				if @board[22] == "."
+					@board[22] = r_or_b
+					@board
+				elsif @board[17] = "."
+					@board[17] = r_or_b
+					@board 
+				end 
 		elsif row == 4
 			@board[23] = "R"
 			@board
@@ -67,6 +63,7 @@ class ConnectGame
 			@board[24] = "R"
 			@board
 		end  
+		
 		if @whose_turn == "Player Red"
 			@whose_turn = "Player Blue"
 		else 
