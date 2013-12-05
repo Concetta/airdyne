@@ -24,39 +24,29 @@ class ConnectGame
 	def check_horizontal_win(r_or_b, who_wins)
 		the_winner = nil 
 		(0.upto(1)).each do |x|
-			if @board[0 + x] == r_or_b && @board[1 + x] == r_or_b && @board[2 + x] == r_or_b && @board[3 + x] == r_or_b 
-				the_winner = who_wins
-			elsif @board[5 + x] == r_or_b && @board[6 + x] == r_or_b && @board[7 + x] == r_or_b && @board[8 + x] == r_or_b 
-				the_winner = who_wins
-			elsif @board[10 + x] == r_or_b && @board[11 + x] == r_or_b && @board[12 + x] == r_or_b && @board[13 + x] == r_or_b 
-				the_winner = who_wins	
-			elsif @board[15 + x] == r_or_b && @board[16 + x] == r_or_b && @board[17 + x] == r_or_b && @board[18 + x] == r_or_b
-				the_winner = who_wins		
-			elsif @board[20 + x] == r_or_b && @board[21 + x] == r_or_b && @board[22 + x] == r_or_b && @board[23 + x] == r_or_b 
-				the_winner = who_wins	
+			([0,5,10,15,20]).each do |y|
+				if @board[y + x] == r_or_b && @board[y + 1 + x] == r_or_b && @board[y + 2 + x] == r_or_b && @board[y + 3 + x] == r_or_b 
+					the_winner = who_wins
+				end 
 			end 
 		end 
 		the_winner
 	end 
 
 	def check_diagonal_win(r_or_b, who_wins)
-		if @board[0] == r_or_b && @board[6] == r_or_b && @board[12] == r_or_b && @board[18] == r_or_b
-			who_wins
-		elsif @board[15] == r_or_b && @board[11] == r_or_b && @board[7] == r_or_b && @board[3] == r_or_b 
-			who_wins
-		elsif @board[16] == r_or_b && @board[12] == r_or_b && @board[8] == r_or_b && @board[4] == r_or_b 
-			who_wins
-		elsif @board[19] == r_or_b && @board[13] == r_or_b && @board[7] == r_or_b && @board[1] == r_or_b 
-			who_wins
-		elsif @board[20] == r_or_b && @board[16] == r_or_b && @board[12] == r_or_b && @board[8] == r_or_b 
-			who_wins
-		elsif @board[21] == r_or_b && @board[17] == r_or_b && @board[13] == r_or_b && @board[9] == r_or_b 
-			who_wins
-		elsif @board[23] == r_or_b && @board[17] == r_or_b && @board[11] == r_or_b && @board[5] == r_or_b 
-			who_wins
-		elsif @board[24] == r_or_b && @board[18] == r_or_b && @board[12] == r_or_b && @board[6] == r_or_b 
-			who_wins
-		end
+		the_winner = nil 
+		(0.upto(1)).each do |x|
+			if @board[15 + x] == r_or_b && @board[11 + x] == r_or_b && @board[7 + x] == r_or_b && @board[3 + x] == r_or_b 
+				the_winner = who_wins
+			elsif @board[18 + x] == r_or_b && board[12 + x] == r_or_b && @board[6 + x] == r_or_b && @board[0 + x] == r_or_b
+				the_winner = who_wins
+			elsif @board[20 + x] == r_or_b && @board[16 + x] == r_or_b && @board[12 + x] == r_or_b && @board[8 + x] == r_or_b 
+				the_winner = who_wins
+			elsif @board[23 + x] == r_or_b && @board[17 + x] == r_or_b && @board[11 + x] == r_or_b && @board[5 + x] == r_or_b 
+				the_winner = who_wins
+			end 
+		end 
+		the_winner
 	end 
 
 	def the_winner(r_or_b, who_wins)
@@ -96,16 +86,11 @@ class ConnectGame
 	end
 
 	def row_one(r_or_b)
-		if @board[20] == "." 
-			@board[20] = r_or_b	
-		elsif @board[15] == "."
-			@board[15] = r_or_b
- 		elsif @board[10] == "." 
-			@board[10] = r_or_b
-		elsif @board[5] == "." 
-			@board[5] = r_or_b
-		elsif @board[0] == "." 
-			@board[0] = r_or_b
+		(4.downto(0)).each do |x|
+			if @board[5 * x] == "."
+				@board[5 * x] = r_or_b
+				break 
+			end
 		end 
 	end 
 
