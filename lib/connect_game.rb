@@ -37,6 +37,16 @@ class ConnectGame
 		the_winner("R", "Player Red Wins") or the_winner("B", "Player Blue Wins")
 	end 
 
+	def done? 
+		if who_is_the_winner
+			who_is_the_winner
+		else 
+			"No more moves"
+		end 
+	end 
+
+	private
+
 	def the_winner(r_or_b, who_wins)
 		if the_winner = check_vertical_win(r_or_b, who_wins)
 			the_winner

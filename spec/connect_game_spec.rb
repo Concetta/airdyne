@@ -230,146 +230,262 @@ describe ConnectGame do
 			end 
 		end
 
-		context "four in a row or diagonal of same colour is a win" do 
-			it "Player Red has four moves in row one spaces 0, 5, 10, 15" do 
-				@game.play(2)
-				@game.board.should == ".....................R..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(1)
-				@game.board.should == "....................BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(1)
-				@game.board.should == "...............R....BR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "...............RB...BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(1)
-				@game.board.should == "..........R....RB...BR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "..........RB...RB...BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(1)
-				@game.board.should == ".....R....RB...RB...BR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == ".....RB...RB...RB...BR..."
-				@game.play(1)
-				@game.board.should == "R....RB...RB...RB...BR..."
-				@game.who_is_the_winner.should == "Player Red Wins"
-			end			
+	context "four in a row or diagonal of same colour is a win" do 
+		it "Player Red has four moves in row one spaces 0, 5, 10, 15" do 
+			@game.play(2)
+			@game.board.should == ".....................R..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "....................BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "...............R....BR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "...............RB...BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "..........R....RB...BR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "..........RB...RB...BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == ".....R....RB...RB...BR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == ".....RB...RB...RB...BR..."
+			@game.play(1)
+			@game.board.should == "R....RB...RB...RB...BR..."
+			@game.who_is_the_winner.should == "Player Red Wins"
+		end			
 
-			it "Player Red has four moves in row two 6, 11 16, 21" do 
-				@game.play(2)
-				@game.board.should == ".....................R..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(1)
-				@game.board.should == "....................BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(2)
-				@game.board.should == "................R...BR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(1)
-				@game.board.should == "...............BR...BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(2)
-				@game.board.should == "...........R...BR...BR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(1)
-				@game.board.should == "..........BR...BR...BR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(2)
-				@game.board.should == "......R...BR...BR...BR..."
-				@game.who_is_the_winner.should == "Player Red Wins"
-			end
-
-			it "Player Blue has four moves in row two 6, 11 16, 21" do 
-				@game.play(1)
-				@game.board.should == "....................R...."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "....................RB..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(4)
-				@game.board.should == "....................RB.R."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "................B...RB.R."
-				@game.whose_turn.should == "Player Red"
-				@game.play(1)
-				@game.board.should == "...............RB...RB.R."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "...........B...RB...RB.R."
-				@game.whose_turn.should == "Player Red"
-				@game.play(1)
-				@game.board.should == "..........RB...RB...RB.R."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "......B...RB...RB...RB.R."
-				@game.who_is_the_winner.should == "Player Blue Wins"
-			end 
-
-			it "Player Red has four moves in 20, 21, 22, 23" do 
-				@game.play(1)
-				@game.board.should == "....................R...."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(1)
-				@game.board.should == "...............B....R...."
-				@game.whose_turn.should == "Player Red"
-				@game.play(2)
-				@game.board.should == "...............B....RR..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "...............BB...RR..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(3)
-				@game.board.should == "...............BB...RRR.."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(3)
-				@game.board.should == "...............BBB..RRR.."
-				@game.whose_turn.should == "Player Red"
-				@game.play(4)
-				@game.board.should == "...............BBB..RRRR."
-				@game.who_is_the_winner.should == "Player Red Wins"
-			end 
-
-			it "Player Red has four moves in row 20, 16, 12, 8" do 
-				@game.play(1)
-				@game.board.should == "....................R...."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(2)
-				@game.board.should == "....................RB..."
-				@game.whose_turn.should == "Player Red"
-				@game.play(2)
-				@game.board.should == "................R...RB..."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(3)
-				@game.board.should == "................R...RBB.."
-				@game.whose_turn.should == "Player Red"
-				@game.play(4)
-				@game.board.should == "................R...RBBR."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(3)
-				@game.board.should == "................RB..RBBR."
-				@game.whose_turn.should == "Player Red"
-				@game.play(3)
-				@game.board.should == "............R...RB..RBBR."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(4)
-				@game.board.should == "............R...RBB.RBBR."
-				@game.whose_turn.should == "Player Red"
-				@game.play(4)
-				@game.board.should == "............RR..RBB.RBBR."
-				@game.whose_turn.should == "Player Blue"
-				@game.play(5)
-				@game.board.should == "............RR..RBB.RBBRB"
-				@game.whose_turn.should == "Player Red"
-				@game.play(4)
-				@game.board.should == "........R...RR..RBB.RBBRB"
-				@game.who_is_the_winner.should == "Player Red Wins"
-			end 		 		
+		it "Player Red has four moves in row two 6, 11 16, 21" do 
+			@game.play(2)
+			@game.board.should == ".....................R..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "....................BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "................R...BR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "...............BR...BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "...........R...BR...BR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "..........BR...BR...BR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "......R...BR...BR...BR..."
+			@game.who_is_the_winner.should == "Player Red Wins"
 		end
+
+		it "Player Blue has four moves in row two 6, 11 16, 21" do 
+			@game.play(1)
+			@game.board.should == "....................R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "....................RB..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "....................RB.R."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "................B...RB.R."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "...............RB...RB.R."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "...........B...RB...RB.R."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "..........RB...RB...RB.R."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "......B...RB...RB...RB.R."
+			@game.who_is_the_winner.should == "Player Blue Wins"
+		end 
+
+		it "Player Red has four moves in 20, 21, 22, 23" do 
+			@game.play(1)
+			@game.board.should == "....................R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "...............B....R...."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "...............B....RR..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "...............BB...RR..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == "...............BB...RRR.."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "...............BBB..RRR.."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "...............BBB..RRRR."
+			@game.who_is_the_winner.should == "Player Red Wins"
+		end 
+
+		it "Player Red has four moves in row 20, 16, 12, 8" do 
+			@game.play(1)
+			@game.board.should == "....................R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "....................RB..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "................R...RB..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "................R...RBB.."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "................R...RBBR."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "................RB..RBBR."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == "............R...RB..RBBR."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == "............R...RBB.RBBR."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "............RR..RBB.RBBR."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == "............RR..RBB.RBBRB"
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "........R...RR..RBB.RBBRB"
+			@game.who_is_the_winner.should == "Player Red Wins"
+		end		 		
+	end
+
+	context "Game Done?" do 
+		it "Game is done when there is a winner" do 
+			@game.play(2)
+			@game.board.should == ".....................R..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == ".....................RB.."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == ".................R...RB.."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == ".................R...RBB."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == ".................RR..RBB."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == ".................RR..RBBB"
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == ".............R...RR..RBBB"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == ".............R...RRB.RBBB"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == ".............RR..RRB.RBBB"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == ".............RR..RRBBRBBB"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == ".........R...RR..RRBBRBBB"
+			@game.done?.should == "Player Red Wins"
+		end 
+
+		it "Game is done when there are no more valid moves" do
+			@game.play(1)
+			@game.board.should == "....................R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "....................RB..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == "....................RBR.."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == "....................RBRB."
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == "....................RBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "...............B....RBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "...............BR...RBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "...............BRB..RBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "...............BRBR.RBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == "...............BRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "..........R....BRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "..........RB...BRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "..........RB.R.BRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "..........RBBR.BRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == ".....R....RBBR.BRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == ".....R....RBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == ".....R.R..RBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == ".....RBR..RBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == ".....RBR.RRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == ".....RBRBRRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == ".R...RBRBRRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "BR...RBRBRRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "BR.R.RBRBRRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == "BRBR.RBRBRRBBRBBRBRBRBRBR"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == "BRBRRRBRBRRBBRBBRBRBRBRBR"
+			@game.done?.should == "No more moves"
+		end 
 	end 
+end 
 end 
