@@ -229,6 +229,7 @@ describe ConnectGame do
 				@game.whose_turn.should == "Player Red"
 			end 
 		end
+	end 
 
 	context "four in a row or diagonal of same colour is a win" do 
 		it "Player Red has four moves in row one spaces 0, 5, 10, 15" do 
@@ -487,5 +488,101 @@ describe ConnectGame do
 			@game.done?.should == "No more moves"
 		end 
 	end 
-end 
+
+	context "invalid move" do
+		it "raises an error when row 1 is filled and next player tries to play in row 1" do 
+			@game.play(1)
+			@game.board.should == "....................R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == "...............B....R...."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "..........R....B....R...."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(1)
+			@game.board.should == ".....B....R....B....R...."
+			@game.whose_turn.should == "Player Red"
+			@game.play(1)
+			@game.board.should == "R....B....R....B....R...."
+			@game.whose_turn.should == "Player Blue"
+			lambda{@game.play(1)}.should raise_error
+		end 
+
+		it "raises an error when row 2 is filled and the next player tries to play in row 2" do 
+			@game.play(2)
+			@game.board.should == ".....................R..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "................B....R..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == "...........R....B....R..."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(2)
+			@game.board.should == "......B....R....B....R..."
+			@game.whose_turn.should == "Player Red"
+			@game.play(2)
+			@game.board.should == ".R....B....R....B....R..."
+			@game.whose_turn.should == "Player Blue"
+			lambda{@game.play(2)}.should raise_error			
+		end
+
+		it "raises an error when row 3 is filled and the next player tries to play in row 3" do 
+			@game.play(3)
+			@game.board.should == "......................R.."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == ".................B....R.."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == "............R....B....R.."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(3)
+			@game.board.should == ".......B....R....B....R.."
+			@game.whose_turn.should == "Player Red"
+			@game.play(3)
+			@game.board.should == "..R....B....R....B....R.."
+			@game.whose_turn.should == "Player Blue"
+			lambda{@game.play(3)}.should raise_error			
+		end 
+
+		it "raises an error when row 4 is filled and the next player tries to play in row 4" do 
+			@game.play(4)
+			@game.board.should == ".......................R."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == "..................B....R."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == ".............R....B....R."
+			@game.whose_turn.should == "Player Blue"
+			@game.play(4)
+			@game.board.should == "........B....R....B....R."
+			@game.whose_turn.should == "Player Red"
+			@game.play(4)
+			@game.board.should == "...R....B....R....B....R."
+			@game.whose_turn.should == "Player Blue"
+			lambda{@game.play(4)}.should raise_error			
+		end 
+
+		it "raises an error when row 5 is filled and the next player tries to play in row 5" do 
+			@game.play(5)
+			@game.board.should == "........................R"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == "...................B....R"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == "..............R....B....R"
+			@game.whose_turn.should == "Player Blue"
+			@game.play(5)
+			@game.board.should == ".........B....R....B....R"
+			@game.whose_turn.should == "Player Red"
+			@game.play(5)
+			@game.board.should == "....R....B....R....B....R"
+			@game.whose_turn.should == "Player Blue"
+			lambda{@game.play(5)}.should raise_error			
+		end 
+	end 
 end 

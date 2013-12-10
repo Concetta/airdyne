@@ -13,7 +13,7 @@ class ConnectGame
 		else 
 			r_or_b = "B"
 		end 
-		
+		 
 		if row == 1 
 			row_one(r_or_b)
 		elsif row == 2
@@ -58,46 +58,66 @@ class ConnectGame
 	end 
 
 	def row_one(r_or_b)
-		(4.downto(0)).each do |x|
-			if @board[5 * x] == "."
-				@board[5 * x] = r_or_b
-				break 
+		if @board[0] != "."
+			raise 'invalid play'
+		else 
+			(4.downto(0)).each do |x|
+				if @board[5 * x] == "."
+					@board[5 * x] = r_or_b
+					break 
+				end
 			end
 		end 
 	end 
 
 	def row_two(r_or_b)
-		(4.downto(0)).each do |x|
-			if @board[5 * x + 1] == "."
-				@board[5 * x + 1] = r_or_b
-				break
+		if @board[1] != "."
+			raise 'invalid play'
+		else 
+			(4.downto(0)).each do |x|
+				if @board[5 * x + 1] == "."
+					@board[5 * x + 1] = r_or_b
+					break
+				end 
 			end 
 		end 
 	end 
 
 	def row_three(r_or_b)
-		(4.downto(0)).each do |x|
-			if @board[5 * x + 2] == "."
-				@board[5 * x + 2] = r_or_b
-				break
+		if @board[2] != "."
+			raise 'invalid play'
+		else 
+			(4.downto(0)).each do |x|
+				if @board[5 * x + 2] == "."
+					@board[5 * x + 2] = r_or_b
+					break
+				end 
 			end 
 		end 
 	end 
 
 	def row_four(r_or_b)
+		if @board[3] != "."
+			raise 'invalid play'
+		else 
 		(4.downto(0)).each do |x|
-			if @board[5 * x + 3] == "."
-				@board[5 * x + 3] = r_or_b
-				break
+				if @board[5 * x + 3] == "."
+					@board[5 * x + 3] = r_or_b
+					break
+				end 
 			end 
 		end 
 	end 
 
 	def row_five(r_or_b)
-		(4.downto(0)).each do |x|
-			if @board[5 * x + 4] == "."
-				@board[5 * x + 4] = r_or_b
-				break
+		if @board[4] != "."
+			raise 'invalid play'
+		else 
+			(4.downto(0)).each do |x|
+				if @board[5 * x + 4] == "."
+					@board[5 * x + 4] = r_or_b
+					break
+				end 
 			end 
 		end 
 	end 
