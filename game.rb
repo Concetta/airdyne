@@ -1,5 +1,6 @@
 require "highline/import"
 require "./lib/naughts_and_crosses.rb"
+require "./lib/connect_game.rb"
 
 say "Menu"
 
@@ -25,6 +26,25 @@ say "Menu"
 				rescue RuntimeError => e
 					say e.message
 				end 
+			end 
+		end 
+		menu.choice "Connect the dots" do 
+			say "Connect the dots\n Rules: \n Player Red is R\n Player Blue is B\n"
+			@game = ConnectGame.new
+			say @game.board
+			game_play = true 
+			
+			while game_play 	
+				begin 		
+					row = ask "Choose a row from 1 -5 to play", Integer
+					@game.play(row)
+					say @game.board
+					if @game.done?.include?(" Wins")
+						game_play = false 
+					end 
+				rescue RuntimeError => e
+					say e.message
+				end 	
 			end 
 		end 
 		menu.choice(:Exit) { exit }

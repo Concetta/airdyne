@@ -1,11 +1,16 @@
 class ConnectGame 
 
-	attr_accessor :board, :whose_turn
+	attr_accessor :board, :whose_turn, :dev
 
-	def initialize
-		@board = "........................."
+	def initialize(dev = nil)
+		if dev 
+			@board = "........................."
+		else 
+		 @board = ".....\n.....\n.....\n.....\n....."
+		end 
 		@whose_turn = "Player Red"
 	end 
+
 
 	def play(row)
 		if @whose_turn == "Player Red"

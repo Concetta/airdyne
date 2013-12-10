@@ -4,7 +4,7 @@ require './lib/connect_game.rb'
 describe ConnectGame do
 
 	before :each do 
-		@game = ConnectGame.new 
+		@game = ConnectGame.new "dev"
 	end 
 
 	context "New" do 
